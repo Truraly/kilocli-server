@@ -15,6 +15,5 @@ jobs:
         uses: actions/checkout@v5
       - name: Build and push
         run: |
-          echo "REGISTRY=${{ vars.REGISTRY }}"
           docker build -t ${{ vars.REGISTRY }}/kilocli-server:latest -f ./Dockerfile .
           docker push ${{ vars.REGISTRY }}/kilocli-server:latest
