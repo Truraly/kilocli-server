@@ -1,0 +1,14 @@
+name: 2bao-kilocli
+services:
+  kilocli-server:
+    ports:
+      - 30000:3000
+    # 使用host
+    # network_mode: host
+    volumes:
+      - ./kilo-config:/root/.config/kilo
+      - ./kilo-share:/root/.local/share/kilo
+      - ./kilo-state:/root/.local/state/kilo
+      - /path/to/project:/workspace
+    container_name: kilo
+    image: kilocli-server
