@@ -15,5 +15,6 @@ jobs:
         uses: actions/checkout@v5
       - name: Build and push
         run: |
+          echo "IP_GITEA=${{ gitea.IP_GITEA }}"
           docker build -t ${{ gitea.IP_GITEA }}/kilocli-server:latest -f ./Dockerfile .
           docker push ${{ gitea.IP_GITEA }}/kilocli-server:latest
