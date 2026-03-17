@@ -17,7 +17,7 @@ RUN apt-get update
 # RUN rm google-chrome-stable_current_amd64.deb 
 
 # 安装git
-RUN apt-get install git
+RUN apt-get install -y --no-install-recommends git
 
 
 RUN apt-get clean 
