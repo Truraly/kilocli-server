@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - "main"
-      
+
 jobs:
   release-image:
     runs-on: [deploy, uopve]
@@ -14,4 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Build and push
-        run: ./buildandpush.sh
+        run: |
+          docker build -t ${{ gitea.IP_GITEA }}/kilocli-server:latest -f ./Dockerfile .
+          docker push ${{ gitea.IP_GITEA }}/kilocli-server:latest
