@@ -7,6 +7,10 @@ on:
     branches:
       - "main"
 
+env:
+  REGISTRY: ${{ vars.REGISTRY }}
+  # TRURALY_GITEA_SSH: ${{ secrets.TRURALY_GITEA_SSH }}
+
 jobs:
   release-image:
     runs-on: [deploy, uopve]
@@ -15,5 +19,7 @@ jobs:
         uses: actions/checkout@v5
       - name: Build and push
         run: |
-          docker build -t ${{ vars.REGISTRY }}/kilocli-server:latest -f ./Dockerfile .
-          docker push ${{ vars.REGISTRY }}/kilocli-server:latest
+          docker build \
+            -t $REGISTRY/kilocli-server:latest \
+            -f ./Dockerfile . 
+          docker push $REGISTRY/kilocli-server:latest

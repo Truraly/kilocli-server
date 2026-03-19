@@ -11,3 +11,7 @@
 ```bash
 docker build -t kilocli-server -f ./Dockerfile .
 ```
+
+因为需要和我的gitea配合，所以安装了ssh
+
+
